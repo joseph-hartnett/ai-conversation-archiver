@@ -6,6 +6,21 @@ from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
 
+# --- JSON-History backup ---
+source = "chatgpt_conversations.json"
+history_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "JSON-History")
+os.makedirs(history_dir, exist_ok=True)
+
+if os.path.exists(source):
+    dated_name = f"chatgpt_conversations_{datetime.today().strftime('%Y-%m-%d')}.json"
+    dest = os.path.join(history_dir, dated_name)
+    if not os.path.exists(dest):
+        shutil.copy2(source, dest)
+        print(f"Backed up {source} → {dest}")
+    else:
+        print(f"Backup already exists for today: {dest}")
+# --- End backup ---
+
 def sanitize_filename(name, max_length=100):
     """Convert a string to a safe filename"""
     name = re.sub(r'[<>:"/\\|?*]', '', name)
