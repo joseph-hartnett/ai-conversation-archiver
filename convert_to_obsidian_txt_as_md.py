@@ -1,8 +1,24 @@
 import json
 import os
 import re
+import shutil
 from datetime import datetime
 from pathlib import Path
+
+# --- JSON-History backup ---
+source = "conversations.json"
+history_dir = "JSON-History"
+os.makedirs(history_dir, exist_ok=True)
+
+if os.path.exists(source):
+    dated_name = f"conversations_{datetime.today().strftime('%Y-%m-%d')}.json"
+    dest = os.path.join(history_dir, dated_name)
+    if not os.path.exists(dest):
+        shutil.copy2(source, dest)
+        print(f"Backed up {source} → {dest}")
+    else:
+        print(f"Backup already exists for today: {dest}")
+# --- End backup ---
 
 # CONFIGURATION
 INCLUDE_THINKING = False  # Set to True to include Claude's internal reasoning blocks
