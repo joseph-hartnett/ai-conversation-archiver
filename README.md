@@ -44,30 +44,30 @@ Full setup instructions with screenshots are in the [companion LibGuide](https:/
 ### Claude
 
 1. Export your data from [claude.ai](https://claude.ai) (Settings > Privacy > Export Data)
-2. Download and unzip. Place `conversations.json` in `Archive-Scripts/`
+2. Download and unzip. Move `conversations.json` from Downloads into `Archive-Scripts/` (replace the old one).
 3. Run:
 ```bash
 cd ~/Desktop/Archive-Scripts
 python3 convert_claude_to_obsidian.py
 ```
-4. Open the generated `Archive/` folder as a vault in Obsidian
+4. Open the generated `Claude-Conversations/` folder as a vault in Obsidian
 
 ### ChatGPT
 
 1. Request your export from [chatgpt.com](https://chatgpt.com) (Settings > Data Controls > Export Data). Allow up to 24 hours for the email.
-2. Download and unzip. Place `conversations.json` and any PNG image files in `Archive-Scripts/`
+2. Download and unzip. Move `chatgpt_conversations.json` and any PNG files from Downloads into `Archive-Scripts/`.
 3. Run:
 ```bash
 cd ~/Desktop/Archive-Scripts
 python3 convert_chatgpt_to_obsidian.py
 ```
-4. Open the generated `Archive-ChatGPT/` folder as a vault in Obsidian
+4. Open the generated `ChatGPT-Conversations/` folder as a vault in Obsidian
 
 ## Output Structure
 
 **Claude Archive**
 ```
-Archive/
+Claude-Conversations/
     00-MASTER-INDEX.md
     Conversations/
     Files/
@@ -75,7 +75,7 @@ Archive/
 
 **ChatGPT Archive**
 ```
-Archive-ChatGPT/
+ChatGPT-Conversations/
     00-MASTER-INDEX.md
     Conversations/
     Images/
