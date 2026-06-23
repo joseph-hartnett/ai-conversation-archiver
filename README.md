@@ -31,7 +31,7 @@ This project is part of a broader scholarly contribution on cognitive sovereignt
 
 - Python 3.x
 - No additional libraries required (uses only Python standard library)
-- Obsidian (free): [obsidian.md](https://obsidian.md)
+- Obsidian (free): [obsidian.md](https://obsidian.md/)
 
 ## Setup
 
@@ -41,23 +41,21 @@ Full setup instructions with screenshots are in the [companion LibGuide](https:/
 
 ## Quick Start
 
-### Claude
-
-1. Export your data from [claude.ai](https://claude.ai) (Settings > Privacy > Export Data)
+**Claude**
+1. Export your data from [claude.ai](https://claude.ai/) (Settings > Privacy > Export Data)
 2. Download and unzip. Move `conversations.json` from Downloads into `Archive-Scripts/` (replace the old one).
 3. Run:
-```bash
+```
 cd ~/Desktop/Archive-Scripts
 python3 convert_claude_to_obsidian.py
 ```
 4. Open the generated `Claude-Conversations/` folder as a vault in Obsidian
 
-### ChatGPT
-
-1. Request your export from [chatgpt.com](https://chatgpt.com) (Settings > Data Controls > Export Data). Allow up to 24 hours for the email.
+**ChatGPT**
+1. Request your export from [chatgpt.com](https://chatgpt.com/) (Settings > Data Controls > Export Data). Allow up to 24 hours for the email.
 2. Download and unzip. Move `chatgpt_conversations.json` and any PNG files from Downloads into `Archive-Scripts/`.
 3. Run:
-```bash
+```
 cd ~/Desktop/Archive-Scripts
 python3 convert_chatgpt_to_obsidian.py
 ```
@@ -83,7 +81,9 @@ ChatGPT-Conversations/
 
 ## Monthly Workflow
 
-Both scripts are designed to be run monthly after downloading a fresh export. The output folder updates on each run. Keep your source JSON files until the next export as backup. Total time once set up: approximately 5 minutes per platform per month.
+Both scripts are designed to be run monthly after downloading a fresh export. **Each run regenerates the output folder completely — existing notes are overwritten, not merged or updated in place.** Keep your source JSON files until the next export as backup. Total time once set up: approximately 5 minutes per platform per month.
+
+**This archive is a read-only transcript record.** Do not add notes, links, or tags inside the generated files — they will not survive the next run. If you want to annotate conversations or connect ideas across them, do that in a separate vault or a separate folder the script doesn't touch. See the LibGuide for a recommended workflow.
 
 ## Limitations
 
@@ -91,6 +91,8 @@ Both scripts are designed to be run monthly after downloading a fresh export. Th
 
 **ChatGPT:** Only text extraction from uploaded files is preserved, not the original files. Long documents are truncated at 500 lines or 10,000 characters for readability. The full text remains in the source JSON.
 
+**Both platforms:** Each run fully regenerates the output folder. Manual edits, links, or tags added inside archive notes will be lost on the next run. The archive is intended for searching and reading, not for writing or linking — see the LibGuide for a recommended workflow using a separate notes vault.
+
 ## License
 
-MIT License. Free to use, adapt, and build on. See [LICENSE](LICENSE) for details.
+MIT License. Free to use, adapt, and build on. See [LICENSE](https://github.com/joseph-hartnett/ai-conversation-archiver/blob/main/LICENSE) for details.
